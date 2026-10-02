@@ -20,7 +20,7 @@ void Game::Reset()
 	ResetBall();
 
 	// TODO #2 - Add this brick and 4 more bricks to the vector
-	for (size_t i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		Box brick;
 		brick.width = 10;
@@ -94,7 +94,10 @@ void Game::CheckCollision()
 			ball.y_velocity *= -1;
 
 			// TODO #5 - If the ball hits the same brick 3 times (color == black), remove it from the vector
-
+			if (bricks[i].color == Black)
+			{
+				bricks.erase(bricks.begin() + i);
+			}
 		}
 	}
 	
